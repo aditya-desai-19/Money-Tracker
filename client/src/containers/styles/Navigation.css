@@ -1,0 +1,7 @@
+.navigationContainer {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    font-family: var(--secondary-font);
+    height: 3rem;
+}

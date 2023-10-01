@@ -1,0 +1,14 @@
+.footerContainer {
+    position: fixed;
+    background-color: var(--footer-background-color);
+    font-family: var(--primary-font);
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.footerTitle {
+    padding-top: 1rem;
+    text-align: center;
+    color: var(--font-color);
+}

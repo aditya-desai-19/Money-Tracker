@@ -1,0 +1,30 @@
+.summaryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+  height: 10rem;
+  border: 1px solid #e4e7ed;
+  margin: 3rem;
+  padding: 1rem;
+  background-color: #fff;
+  color: var(--font-color);
+}
+
+.summaryContainerTitle {
+  font-family: var(--primary-font);
+}
+
+.summaryElements {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 420px) {
+  .summaryContainer {
+    height: 10rem;
+    width: 20rem;
+    margin: 1.5rem;
+    padding: 0.5rem;
+  }
+}

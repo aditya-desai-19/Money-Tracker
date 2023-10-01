@@ -1,0 +1,57 @@
+.transactionHistoryContainer {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  height: 15rem;
+  border: 1px solid #e4e7ed;
+  margin: 3rem;
+  padding: 1rem;
+  background-color: #fff;
+  color: var(--font-color);
+}
+
+.transactionHistoryTitle {
+  text-align: center;
+  font-family: var(--primary-font);
+}
+
+thead, tbody {
+  display: block;
+  font-family: var(--secondary-font);
+}
+
+tbody {
+  overflow-y: scroll;
+  height: 6.5rem;
+}
+
+.heading {
+  padding-top: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  border: 0.1rem solid #e4e7ed;
+  width: 25%;
+}
+
+.transactionHistory {
+  text-align: center;
+  border: 0.1rem solid #e4e7ed;
+  width: 23%;
+}
+
+.operationButton {
+  border: 0;
+  background-color: #fff;
+}
+
+@media screen and (max-width: 992px) {
+  .heading {
+      width: 26%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .transactionHistoryContainer {
+    width: 20rem;
+  }
+}

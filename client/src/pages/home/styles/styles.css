@@ -1,0 +1,23 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--background-color);
+}
+
+.transactionDetailsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+    .transactionDetailsContainer {
+        margin-top: 6rem;
+        flex-direction: column;
+    }
+}

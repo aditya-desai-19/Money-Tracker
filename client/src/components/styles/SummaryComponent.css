@@ -1,0 +1,18 @@
+.summaryElementContainer {
+  border: 1px solid #e4e7ed;
+  width: 9rem;
+  height: 5rem;
+  text-align: center;
+  font-family: var(--secondary-font);
+}
+
+.summaryTitle {
+  border-bottom: 1px solid #e4e7ed;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 420px) {
+  .summaryElementContainer {
+    width: 6rem;
+  }
+}

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&display=swap');
+
+:root { 
+    margin: 0;
+    padding: 0;
+    max-width: '100%';
+    overflow-x: hidden;
+    font-size: '62.5%';
+
+    /* colors */
+    --primary-color: #EE9322;
+    --secondary-color: #35155D;
+    --background-color: #F6F6F6;
+    --footer-background-color: #FFD6A5;
+    --font-color: #404258;
+
+    /* font */
+    --primary-font: 'Merriweather', serif;
+    --secondary-font: 'Lato', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    font-size: 1.6rem;
+    font-family: var(--primary-font);
+}
