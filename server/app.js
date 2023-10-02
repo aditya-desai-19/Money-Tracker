@@ -31,7 +31,6 @@ app.get('/transactions', function (req, res) {
     conn.query(query, function (err, data) {
         if (err) return res.json(err);
         res.json(data);
-        console.log({ data });
     });
 });
 
@@ -40,7 +39,6 @@ app.get('/income', function (req, res) {
     conn.query(query, function (err, data) {
         if (err) return res.json(err);
         res.json(data);
-        console.log({ data });
     });
 });
 
@@ -49,7 +47,6 @@ app.get('/expense', function (req, res) {
     conn.query(query, function (err, data) {
         if (err) return res.json(err);
         res.json(data);
-        console.log({ data });
     });
 });
 
@@ -58,7 +55,6 @@ app.get('/total', function (req, res) {
     conn.query(query, function (err, data) {
         if (err) return res.json(err);
         res.json(data);
-        console.log({ data });
     });
 });
 
@@ -78,7 +74,7 @@ app.delete('/transaction/:id', function (req, res) {
     const query = `DELETE FROM transaction WHERE id = ${id}`;
     conn.query(query, function (err, result) {
         if (err) throw err;
-        res.json("Transaction deleted successfully!");
+        res.send("Transaction deleted successfully!");
     });
 })
 

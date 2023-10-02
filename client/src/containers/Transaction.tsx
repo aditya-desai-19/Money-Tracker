@@ -78,7 +78,7 @@ const Transaction: React.FC = () => {
             <h4 className="transactionTitle">Transaction</h4>
             <form onSubmit={handleSubmit}>
                 <Row className="transactionRow">
-                    <Col sm={8}>
+                    <Col>
                         <InputComponent
                             type="date"
                             className="dateAndAmountInput"
@@ -87,7 +87,7 @@ const Transaction: React.FC = () => {
                             required
                         />
                     </Col>
-                    <Col sm={4}>
+                    <Col>
                         <CustomDropDown
                             label={transactionType ? transactionType : 'Type'}
                             onSelect={selectTransactionType}
@@ -106,7 +106,7 @@ const Transaction: React.FC = () => {
                             className="dateAndAmountInput"
                             placeholder="Amount"
                             onChange={handleAmount}
-                            value={amount === 0 ? undefined : amount.toString()}
+                            value={amount.toString() === "0" ? "" : amount.toString()}
                             required
                         />
                     </Col>

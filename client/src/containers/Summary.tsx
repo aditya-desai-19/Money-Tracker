@@ -2,64 +2,41 @@ import { useEffect, useState } from "react";
 import SummaryComponent from "../components/SummaryComponent";
 import "./styles/Summary.css";
 
+interface AmountProps {
+    income: number,
+    expense: number,
+    total: number
+}
+
 const Summary: React.FC = () => {
-    const [income, setIncome] = useState<number>(0);
-    const [expense, setExpense] = useState<number>(0);
-    const [total, setTotal] = useState<number>(0);
+    const [amount, setAmount] = useState<AmountProps>({
+        income: 0,
+        expense: 0,
+        total: 0
+    });
 
     useEffect(() => {
-        async function getIncome() {
-            const response = await fetch("http://localhost:8080/income");
-            try {
-                if(!response.ok) {
-                    throw new Error("Some error occurred");
-                }
-                const data = await response.json();
-                setIncome(data[0]?.income);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        async function getExpense() {
-            const response = await fetch("http://localhost:8080/expense");
-            try {
-                if(!response.ok) {
-                    throw new Error("Some error occurred");
-                }
-                const data = await response.json();
-                console.log(data[0]?.expense);
-                setExpense(data[0]?.expense);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        async function getTotal() {
-            const response = await fetch("http://localhost:8080/total");
-            try {
-                if(!response.ok) {
-                    throw new Error("Some error occurred");
-                }
-                const data = await response.json();
-                setTotal(data[0]?.total);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        getIncome();
-        getExpense();
-        getTotal();
-    },[total]);
+        Promise.all([
+            fetch("http://localhost:8080/income"),
+            fetch("http://localhost:8080/expense"),
+            fetch("http://localhost:8080/total")
+        ]).then(([resIncome, resExpense, resTotal]) => {
+            return Promise.all([resIncome.json(), resExpense.json(), resTotal.json()]);
+        }).then(([dataIncome, dataExpense, dataTotal]) => {
+            console.log({dataTotal})
+            setAmount({income: dataIncome[0].income, expense: dataExpense[0].expense, total: dataTotal[0].total});
+        }).catch((error) => {
+            console.log(error);
+        })
+    }, [amount]);
 
     return (
         <div className="summaryContainer">
             <h4 className="summaryContainerTitle">Summary</h4>
             <div className="summaryElements">
-                <SummaryComponent title="Income" amount={income} />
-                <SummaryComponent title="Expense" amount={expense} />
-                <SummaryComponent title="Total" amount={total} />
+                <SummaryComponent title="Income" amount={amount.income} />
+                <SummaryComponent title="Expense" amount={amount.expense} />
+                <SummaryComponent title="Total" amount={amount.total} />
             </div>
         </div>
     )
