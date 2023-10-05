@@ -23,7 +23,6 @@ const Summary: React.FC = () => {
         ]).then(([resIncome, resExpense, resTotal]) => {
             return Promise.all([resIncome.json(), resExpense.json(), resTotal.json()]);
         }).then(([dataIncome, dataExpense, dataTotal]) => {
-            console.log({dataTotal})
             setAmount({income: dataIncome[0].income, expense: dataExpense[0].expense, total: dataTotal[0].total});
         }).catch((error) => {
             console.log(error);

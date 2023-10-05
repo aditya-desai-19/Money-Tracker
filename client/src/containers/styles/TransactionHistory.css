@@ -44,6 +44,10 @@ tbody {
   background-color: #fff;
 }
 
+.editInput {
+  margin: 0.5rem 0 0.5rem 0;
+}
+
 @media screen and (max-width: 992px) {
   .heading {
       width: 26%;
