@@ -69,6 +69,25 @@ app.post('/addtransaction', function (req, res) {
     });
 });
 
+app.get('/transactiondetails/:id', function (req, res) {
+    const id = req.params.id;
+    const query = `SELECT * FROM transaction WHERE id = ${id}`;
+    conn.query(query, function(err, data) {
+        if(err) throw err;
+        res.json(data);
+    })
+});
+
+app.put('/edittransaction/:id', function (req, res) {
+    const id = req.params.id;
+    const {date, type, category, amount} = req.body;
+    const query = `UPDATE transaction SET date = '${date}', type = '${type}', category = '${category}', amount = ${amount} WHERE id = ${id}`;
+    conn.query(query, function(err, ) {
+        if(err) throw err;
+        res.send("Transaction updated successfully");
+    })
+});
+
 app.delete('/transaction/:id', function (req, res) {
     const id = req.params.id;
     const query = `DELETE FROM transaction WHERE id = ${id}`;

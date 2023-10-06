@@ -76,7 +76,8 @@ const TransactionHistory: React.FC = () => {
     }
 
     const deleteTransaction = () => {
-        const response = fetch(`http://localhost:8080/transaction/${id}`, { method: 'DELETE' });
+        const url = `http://localhost:8080/transaction/${id}`;
+        const response = fetch(url, { method: 'DELETE' });
         response
             .then((response) => response.text())
             .then((message) => {
@@ -107,7 +108,8 @@ const TransactionHistory: React.FC = () => {
     }
 
     const fetchTransactionDetails = async () => {
-        const response = await fetch(`http://localhost:8080/transactiondetails/${id}`);
+        const url = `http://localhost:8080/transactiondetails/${id}`;
+        const response = await fetch(url);
         try {
             if (!response.ok) {
                 throw new Error('Failed to fetch transaction details');
@@ -126,6 +128,33 @@ const TransactionHistory: React.FC = () => {
 
     const closeEditModal = () => {
         setShowEditModal(false);
+    }
+
+    const editTransaction = () => {
+        const url = `http://localhost:8080/edittransaction/${id}`;
+        const data = {
+            date: date,
+            type: transactionType,
+            category: categoryLabel,
+            amount: amount
+        }
+        const jsonData = JSON.stringify(data);
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: jsonData
+        };
+
+        const response = fetch(url, requestOptions);
+        response
+            .then((res) => res.text())
+            .then((message) => (
+                toast.success(message, {
+                    position: "top-right",
+                    autoClose: 3000
+                })))
+            .catch((error) => console.log(error));
+        closeEditModal();
     }
 
     return (
@@ -216,7 +245,7 @@ const TransactionHistory: React.FC = () => {
                 }
                 footer={
                     <>
-                        <ButtonComponent label="Update" onClick={deleteTransaction} variant="warning" />
+                        <ButtonComponent label="Update" onClick={editTransaction} variant="warning" />
                         <ButtonComponent label="Cancel" onClick={closeDeleteModal} />
                     </>
                 }

@@ -2,7 +2,8 @@ import { Button } from "react-bootstrap";
 
 interface ButtonProps {
     label: string;
-    variant?: "primary" | "secondary" | "danger" | "success" | "warning" | "info" | "light" | "dark";
+    variant?: "primary" | "secondary" | "danger" | "success" | "warning" | "info" | "light" | "dark"|
+    "outline-primary"| "outline-secondary"| "outline-danger" | "outline-success"| "outline-warning"| "outline-info" | "outline-light" | "outline-dark";
     title?: string;
     style?: React.CSSProperties;
     type?: "button" | "submit" | "reset" | undefined;
