@@ -27,25 +27,27 @@ Money tracker is a web application where you can track our spendings and earning
 
 Home page
 
-<img src="./screenshots/desktop_view.png" alt="Home page" title="Example Screenshot" width="90%" height="50%"> 
+![desktop_view](https://github.com/aditya-desai-19/Money-Tracker/assets/115383821/dffc3298-7ba2-4b04-b2c4-0a2c011bd23b)
+
+
 
 <br>
 <br>
 
 Tablet/Ipad view
 
-<img src="./screenshots/tablet_view.png" alt="Home page" title="Example Screenshot" width="50%" height="50%"> 
+![tablet_view](https://github.com/aditya-desai-19/Money-Tracker/assets/115383821/286a1d07-6683-4c56-ac99-2de06719fd8c)
 
 <br>
 <br>
 
 Mobile view
 
-<img src="./screenshots/mobile_view.png" alt="Mobile view" title="Example Screenshot" width="50%" height="50%"> 
+![mobile_view](https://github.com/aditya-desai-19/Money-Tracker/assets/115383821/22ab2b08-049f-4b17-8a05-726738d88638)
 
 <br>
 <br>
 
 Analytics modal
 
-<img src="./screenshots/analytics.png" alt="Analytics modal" title="Example Screenshot" width="50%" height="50%">
+![analytics](https://github.com/aditya-apra/React_Boilerplate/assets/131168128/eb9a02d8-8358-4d8c-8ed1-c234da3ac1d0)
