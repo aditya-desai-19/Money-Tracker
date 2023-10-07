@@ -31,21 +31,19 @@ const InputComponent: React.FC<InputGroupProps> = ({
     title,
     required,
     name
-}) => {
-    return (
-        <InputGroup style={style} className={className} id={id} role="myInput">
-            <Form.Control
-                type={type}
-                placeholder={placeholder}
-                onChange={onChange}
-                value={value}
-                title={title}
-                required={required}
-                name={name}
-            />
-        </InputGroup>
-    )
-}
+}) => (
+    <InputGroup style={style} className={className} id={id} role="myInput">
+        <Form.Control
+            type={type}
+            placeholder={placeholder}
+            onChange={onChange}
+            value={value}
+            title={title}
+            required={required}
+            name={name}
+        />
+    </InputGroup>
+)
 
 InputComponent.defaultProps = defaultProps;
 export default InputComponent;

@@ -1,7 +1,7 @@
 import { Col, Row, Dropdown } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ButtonComponent from "../components/ButtonComponent";
-import "./styles/Transaction.css";
+import styles from "./styles/Transaction.module.css";
 import InputComponent from "../components/InputComponent";
 import CustomDropDown from "../components/CustomDropDown";
 import { transactionTypes, transactionCategories } from "../assests/data/data";
@@ -57,31 +57,31 @@ const Transaction: React.FC = () => {
         }
     };
 
-    const handleDate = (e: any) => {
+    const handleDate = useCallback((e: any) => {
         setDate(e.target.value);
-    };
+    }, []);
 
-    const handleAmount = (e: any) => {
+    const handleAmount = useCallback((e: any) => {
         setAmount(e.target.value);
-    };
+    }, []);
 
-    const selectTransactionType = (value: string | null) => {
+    const selectTransactionType = useCallback((value: string | null) => {
         setTransactionType(value);
-    }
+    }, []);
 
-    const selectCategoryType = (value: string | null) => {
+    const selectCategoryType = useCallback((value: string | null) => {
         setCategoryLabel(value);
-    }
+    }, []);
 
     return (
-        <div className="transactionContainer">
-            <h4 className="transactionTitle">Transaction</h4>
+        <div className={styles.transactionContainer}>
+            <h4 className={styles.transactionTitle}>Transaction</h4>
             <form onSubmit={handleSubmit}>
-                <Row className="transactionRow">
+                <Row className={styles.transactionRow}>
                     <Col>
                         <InputComponent
                             type="date"
-                            className="dateAndAmountInput"
+                            className={styles.dateAndAmountInput}
                             onChange={handleDate}
                             value={date}
                             required
@@ -99,11 +99,11 @@ const Transaction: React.FC = () => {
                         />
                     </Col>
                 </Row>
-                <Row className="transactionRow">
+                <Row className={styles.transactionRow}>
                     <Col>
                         <InputComponent
                             type="number"
-                            className="dateAndAmountInput"
+                            className={styles.dateAndAmountInput}
                             placeholder="Amount"
                             onChange={handleAmount}
                             value={amount.toString() === "0" ? "" : amount.toString()}

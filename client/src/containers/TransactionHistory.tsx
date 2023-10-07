@@ -1,5 +1,5 @@
-import "./styles/TransactionHistory.css"
-import { useEffect, useState } from "react";
+import styles from "./styles/TransactionHistory.module.css"
+import {useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { faTrash, faPencil } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -69,11 +69,11 @@ const TransactionHistory: React.FC = () => {
     const openDeleteModal = (event: React.MouseEvent<HTMLButtonElement>) => {
         setId(Number(event.currentTarget.id));
         setShowDeleteModal(true);
-    }
+    };
 
     const closeDeleteModal = () => {
         setShowDeleteModal(false);
-    }
+    };
 
     const deleteTransaction = () => {
         const url = `http://localhost:8080/transaction/${id}`;
@@ -89,7 +89,7 @@ const TransactionHistory: React.FC = () => {
                 setShowDeleteModal(false);
             })
             .catch((error) => console.log(error))
-    }
+    };
 
     const handleDate = (e: any) => {
         setDate(e.target.value);
@@ -101,11 +101,11 @@ const TransactionHistory: React.FC = () => {
 
     const selectTransactionType = (value: string | null) => {
         setTransactionType(value);
-    }
+    };
 
     const selectCategoryType = (value: string | null) => {
         setCategoryLabel(value);
-    }
+    };
 
     const fetchTransactionDetails = async () => {
         const url = `http://localhost:8080/transactiondetails/${id}`;
@@ -119,16 +119,16 @@ const TransactionHistory: React.FC = () => {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     const openEditModal = (event: React.MouseEvent<HTMLButtonElement>) => {
         setId(Number(event.currentTarget.id));
         setShowEditModal(true);
-    }
+    };
 
     const closeEditModal = () => {
         setShowEditModal(false);
-    }
+    };
 
     const editTransaction = () => {
         const url = `http://localhost:8080/edittransaction/${id}`;
@@ -155,31 +155,31 @@ const TransactionHistory: React.FC = () => {
                 })))
             .catch((error) => console.log(error));
         closeEditModal();
-    }
+    };
 
     return (
-        <div className="transactionHistoryContainer">
-            <h4 className="transactionHistoryTitle">Transaction History</h4>
+        <div className={styles.transactionHistoryContainer}>
+            <h4 className={styles.transactionHistoryTitle}>Transaction History</h4>
             <table>
                 <thead>
                     <tr>
-                        <th className="heading"><p>Date</p></th>
-                        <th className="heading"><p>Type</p></th>
-                        <th className="heading"><p>Amount</p></th>
-                        <th className="heading"><p>Delete/Edit</p></th>
+                        <th className={styles.heading}><p>Date</p></th>
+                        <th className={styles.heading}><p>Type</p></th>
+                        <th className={styles.heading}><p>Amount</p></th>
+                        <th className={styles.heading}><p>Delete/Edit</p></th>
                     </tr>
                 </thead>
                 <tbody>
                     {transactions?.map((transaction: any) =>
                         <tr key={transaction?.id}>
-                            <td className="transactionHistory">{transaction?.date}</td>
-                            <td className="transactionHistory">{transaction?.type}</td>
-                            <td className="transactionHistory">{transaction?.amount}</td>
-                            <td className="transactionHistory">
-                                <button className="operationButton" id={transaction.id} onClick={openDeleteModal}>
+                            <td className={styles.transactionHistory}>{transaction?.date}</td>
+                            <td className={styles.transactionHistory}>{transaction?.type}</td>
+                            <td className={styles.transactionHistory}>{transaction?.amount}</td>
+                            <td className={styles.transactionHistory}>
+                                <button className={styles.operationButton} id={transaction.id} onClick={openDeleteModal}>
                                     <FontAwesomeIcon icon={faTrash} />
                                 </button>
-                                <button className="operationButton" id={transaction.id} onClick={openEditModal}>
+                                <button className={styles.operationButton} id={transaction.id} onClick={openEditModal}>
                                     <FontAwesomeIcon icon={faPencil} />
                                 </button>
                             </td>
@@ -208,7 +208,7 @@ const TransactionHistory: React.FC = () => {
                     <>
                         <InputComponent
                             type="date"
-                            className="editInput"
+                            className={styles.editInput}
                             onChange={handleDate}
                             value={date}
                             required
@@ -225,7 +225,7 @@ const TransactionHistory: React.FC = () => {
                         />
                         <InputComponent
                             type="number"
-                            className="editInput"
+                            className={styles.editInput}
                             placeholder="Amount"
                             onChange={handleAmount}
                             value={amount?.toString()}

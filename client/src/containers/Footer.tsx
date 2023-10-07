@@ -1,11 +1,9 @@
-import "./styles/Footer.css";
+import styles from "./styles/Footer.module.css";
 
-const Footer: React.FC = () => {
-    return (
-        <div className="footerContainer">
-            <p className="footerTitle">Created with ❤️ by Aditya</p>
-        </div>
-    )
-}
+const Footer: React.FC = () => (
+    <div className={styles.footerContainer}>
+        <p className={styles.footerTitle}>Created with ❤️ by Aditya</p>
+    </div>
+)
 
 export default Footer;

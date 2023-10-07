@@ -9,6 +9,9 @@ interface ModalProps {
     dialogClassName?: string;
     centered?: boolean;
     style?: React.CSSProperties;
+    headerClassName?: string;
+    bodyClassName?: string;
+    footerClassName?: string;
 }
 
 const defaultProps: Partial<ModalProps> = {
@@ -23,18 +26,19 @@ const ModalComponent: React.FC<ModalProps> = ({
     footer,
     dialogClassName,
     centered,
-    style
-}) => {
-    return (
-        <Modal show={show} onHide={onHide} dialogClassName={dialogClassName} centered={centered} style={style}>
-            <Modal.Header closeButton>
-                <Modal.Title>{title}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>{body}</Modal.Body>
-            <Modal.Footer>{footer}</Modal.Footer>
-        </Modal>
-    )
-}
+    style,
+    headerClassName,
+    footerClassName,
+    bodyClassName
+}) => (
+    <Modal show={show} onHide={onHide} dialogClassName={dialogClassName} centered={centered} style={style}>
+        <Modal.Header closeButton className={headerClassName}>
+            <Modal.Title>{title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className={bodyClassName}>{body}</Modal.Body>
+        <Modal.Footer className={footerClassName}>{footer}</Modal.Footer>
+    </Modal>
+)
 
 ModalComponent.defaultProps = defaultProps;
 export default ModalComponent;

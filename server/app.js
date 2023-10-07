@@ -4,7 +4,6 @@ const cors = require("cors");
 const bodyParser = require('body-parser');
 const app = express();
 
-
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -60,7 +59,6 @@ app.get('/total', function (req, res) {
 
 app.post('/addtransaction', function (req, res) {
     const { date, type, category, amount } = req.body;
-    console.log(date, category, amount, type)
     const query = "INSERT INTO transaction(`date`, `type`, `category`, `amount`) VALUES(?)";
     const values = [date, type, category, amount];
     conn.query(query, [values], function (err, result) {
